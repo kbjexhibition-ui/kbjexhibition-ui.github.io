@@ -1,804 +1,220 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cutaway ArchViz & AI Proposal MCP Suite — $29 Lifetime Deal (First 100 Seats)</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-primary: #07090e;
-      --bg-card: #0f131d;
-      --bg-card-hover: #161c2a;
-      --border-subtle: #1e2738;
-      --border-highlight: #3b82f6;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --accent-blue: #3b82f6;
-      --accent-cyan: #06b6d4;
-      --accent-amber: #f59e0b;
-      --accent-emerald: #10b981;
-      --danger: #ef4444;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--bg-primary);
-      background-image: 
-        radial-gradient(circle at 15% 10%, rgba(59, 130, 246, 0.12), transparent 35%),
-        radial-gradient(circle at 85% 25%, rgba(6, 182, 212, 0.10), transparent 35%);
-      color: var(--text-main);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .mono {
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* Top Announcement Bar */
-    .topbar {
-      background: linear-gradient(90deg, #1e3a8a 0%, #0f172a 50%, #1e3a8a 100%);
-      border-bottom: 1px solid rgba(59, 130, 246, 0.35);
-      text-align: center;
-      padding: 10px 16px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      color: #e2e8f0;
-    }
-
-    .topbar span.badge {
-      background: var(--accent-amber);
-      color: #000;
-      padding: 2px 8px;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 0.75rem;
-      margin-right: 8px;
-      text-transform: uppercase;
-    }
-
-    .container {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* Navigation */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      font-size: 1.15rem;
-      letter-spacing: -0.02em;
-    }
-
-    .logo-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      color: #fff;
-    }
-
-    .nav-cta {
-      background: rgba(59, 130, 246, 0.15);
-      border: 1px solid rgba(59, 130, 246, 0.5);
-      color: #fff;
-      padding: 9px 18px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-
-    .nav-cta:hover {
-      background: var(--accent-blue);
-    }
-
-    /* Hero Section */
-    .hero {
-      padding: 76px 0 60px;
-      text-align: center;
-    }
-
-    .pill-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.35);
-      color: #34d399;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      margin-bottom: 24px;
-    }
-
-    h1 {
-      font-size: clamp(2.4rem, 5vw, 4.1rem);
-      font-weight: 900;
-      letter-spacing: -0.035em;
-      line-height: 1.08;
-      max-width: 960px;
-      margin: 0 auto 24px;
-    }
-
-    .gradient-text {
-      background: linear-gradient(95deg, #60a5fa 0%, #22d3ee 55%, #f59e0b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-sub {
-      font-size: clamp(1.05rem, 2vw, 1.28rem);
-      color: var(--text-muted);
-      max-width: 780px;
-      margin: 0 auto 38px;
-      font-weight: 400;
-    }
-
-    .cta-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 52px;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: linear-gradient(135deg, #2563eb 0%, #0891b2 100%);
-      color: #ffffff;
-      font-size: 1.15rem;
-      font-weight: 800;
-      padding: 18px 36px;
-      border-radius: 12px;
-      text-decoration: none;
-      box-shadow: 0 12px 35px -8px rgba(37, 99, 235, 0.65);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 42px -6px rgba(6, 182, 212, 0.75);
-    }
-
-    .price-strike {
-      text-decoration: line-through;
-      opacity: 0.65;
-      font-weight: 500;
-      margin-right: 4px;
-    }
-
-    .guarantee-meta {
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    /* Terminal Preview Window */
-    .terminal-card {
-      background: #0a0d14;
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      max-width: 920px;
-      margin: 0 auto;
-      overflow: hidden;
-      text-align: left;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
-    }
-
-    .terminal-header {
-      background: #111622;
-      padding: 12px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .dots {
-      display: flex;
-      gap: 8px;
-    }
-
-    .dot {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-    }
-    .dot.red { background: #ef4444; }
-    .dot.yellow { background: #f59e0b; }
-    .dot.green { background: #10b981; }
-
-    .terminal-body {
-      padding: 24px;
-      font-size: 0.88rem;
-      line-height: 1.75;
-      color: #cbd5e1;
-      overflow-x: auto;
-    }
-
-    .cmd { color: #38bdf8; font-weight: 600; }
-    .ok { color: #34d399; }
-    .warn { color: #fbbf24; }
-    .comment { color: #64748b; }
-
-    /* Metrics Strip */
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin: 64px 0;
-    }
-
-    .metric-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 26px;
-      text-align: center;
-    }
-
-    .metric-val {
-      font-size: 2.3rem;
-      font-weight: 900;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-
-    .metric-label {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    /* Section Headings */
-    section {
-      padding: 68px 0;
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    .sec-tag {
-      text-transform: uppercase;
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      color: var(--accent-cyan);
-      margin-bottom: 10px;
-      display: block;
-      text-align: center;
-    }
-
-    h2 {
-      font-size: clamp(1.85rem, 3.5vw, 2.65rem);
-      font-weight: 800;
-      text-align: center;
-      letter-spacing: -0.025em;
-      margin-bottom: 16px;
-    }
-
-    .sec-desc {
-      text-align: center;
-      color: var(--text-muted);
-      max-width: 680px;
-      margin: 0 auto 48px;
-      font-size: 1.05rem;
-    }
-
-    /* Before / After Comparison Table */
-    .compare-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-    }
-
-    @media (max-width: 780px) {
-      .compare-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .compare-box {
-      background: var(--bg-card);
-      border-radius: 16px;
-      padding: 32px;
-      border: 1px solid var(--border-subtle);
-    }
-
-    .compare-box.old {
-      border-color: rgba(239, 68, 68, 0.3);
-    }
-
-    .compare-box.new {
-      border-color: rgba(16, 185, 129, 0.45);
-      background: linear-gradient(180deg, rgba(16, 185, 129, 0.06) 0%, var(--bg-card) 100%);
-    }
-
-    .compare-title {
-      font-size: 1.25rem;
-      font-weight: 800;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .compare-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .compare-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 0.96rem;
-      color: #cbd5e1;
-    }
-
-    /* What's Inside Bento Grid */
-    .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-    }
-
-    .bento-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 30px;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-
-    .bento-item:hover {
-      border-color: var(--accent-blue);
-      transform: translateY(-3px);
-    }
-
-    .bento-badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 6px;
-      background: rgba(59, 130, 246, 0.15);
-      color: #60a5fa;
-      margin-bottom: 14px;
-    }
-
-    .bento-item h3 {
-      font-size: 1.22rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .bento-item p {
-      color: var(--text-muted);
-      font-size: 0.94rem;
-      margin-bottom: 16px;
-    }
-
-    .bento-meta {
-      font-size: 0.8rem;
-      color: #94a3b8;
-      border-top: 1px solid var(--border-subtle);
-      padding-top: 12px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    /* Pricing Section */
-    .pricing-card {
-      max-width: 680px;
-      margin: 0 auto;
-      background: linear-gradient(160deg, #111827 0%, #0b0f19 100%);
-      border: 2px solid var(--accent-blue);
-      border-radius: 20px;
-      padding: 44px;
-      position: relative;
-      box-shadow: 0 25px 70px -15px rgba(59, 130, 246, 0.35);
-    }
-
-    .popular-ribbon {
-      position: absolute;
-      top: -14px;
-      right: 32px;
-      background: linear-gradient(90deg, #f59e0b, #ea580c);
-      color: #000;
-      font-weight: 900;
-      font-size: 0.78rem;
-      padding: 5px 14px;
-      border-radius: 999px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .price-row {
-      display: flex;
-      align-items: baseline;
-      gap: 14px;
-      margin: 20px 0 8px;
-    }
-
-    .price-big {
-      font-size: 3.8rem;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      color: #fff;
-    }
-
-    .price-old {
-      font-size: 1.5rem;
-      color: #64748b;
-      text-decoration: line-through;
-    }
-
-    .seat-bar-wrap {
-      margin: 22px 0 28px;
-      background: #1e293b;
-      border-radius: 999px;
-      height: 10px;
-      overflow: hidden;
-    }
-
-    .seat-bar-fill {
-      width: 73%;
-      height: 100%;
-      background: linear-gradient(90deg, #10b981, #f59e0b);
-    }
-
-    .feature-checklist {
-      list-style: none;
-      margin: 28px 0 34px;
-      display: grid;
-      gap: 12px;
-    }
-
-    .feature-checklist li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.98rem;
-    }
-
-    /* FAQ Section */
-    .faq-list {
-      max-width: 820px;
-      margin: 0 auto;
-      display: grid;
-      gap: 16px;
-    }
-
-    .faq-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 24px;
-    }
-
-    .faq-q {
-      font-weight: 700;
-      font-size: 1.06rem;
-      margin-bottom: 8px;
-      color: #fff;
-    }
-
-    .faq-a {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    footer {
-      border-top: 1px solid var(--border-subtle);
-      padding: 40px 0;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.88rem;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CUTAWAY & MATCHFORM — Spatial AI Studio / 23 B2B Demo Index</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--paper:#E8E8E3;--cell:#D3D4CE;--ink:#181715;--dark:#080807;--mono:'JetBrains Mono',monospace;--grotesk:'Space Grotesk',sans-serif;--inter:'Inter',sans-serif}
+body{background:var(--paper);color:var(--ink);font-family:var(--inter);font-size:14px;line-height:1.5}
+.ko{font-family:'Pretendard',var(--inter);word-break:keep-all;overflow-wrap:break-word}
+a{color:inherit;text-decoration:none}
+/* HEADER */
+#hdr{border-bottom:1px solid var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:38px;font-family:var(--mono);font-size:10px;letter-spacing:.04em;position:sticky;top:0;z-index:100;background:var(--paper)}
+#hdr-coords{opacity:.7}
+#hdr-clock{opacity:.9}
+#hdr-nav{display:flex;gap:0}
+#hdr-nav a{padding:0 12px;height:38px;display:flex;align-items:center;border-left:1px solid var(--ink);font-size:10px;transition:background .15s,color .15s}
+#hdr-nav a:hover,#hdr-nav a.active{background:var(--ink);color:var(--paper)}
+/* MAIN SPLIT */
+#split{display:grid;grid-template-columns:34% 66%;min-height:calc(100vh - 38px);border-top:none}
+/* LEFT */
+#left{border-right:1px solid var(--ink);padding:28px 24px;position:sticky;top:38px;height:calc(100vh - 38px);overflow-y:auto}
+#left h1{font-family:var(--grotesk);font-size:clamp(1.1rem,1.6vw,1.4rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:6px}
+#left .sub{font-family:var(--mono);font-size:9px;letter-spacing:.06em;opacity:.6;margin-bottom:20px}
+.section-label{font-family:var(--mono);font-size:9px;letter-spacing:.1em;opacity:.5;margin-bottom:8px;margin-top:20px}
+.link-row{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--ink);padding:9px 12px;margin-bottom:-1px;font-size:12px;cursor:pointer;transition:background .15s,color .15s}
+.link-row:hover{background:var(--ink);color:var(--paper)}
+.link-row .arr{font-family:var(--mono);font-size:11px}
+/* FILTERS */
+#filters{margin-top:22px;display:flex;flex-direction:column;gap:0}
+.flt{border:1px solid var(--ink);padding:8px 12px;margin-bottom:-1px;font-family:var(--mono);font-size:10px;cursor:pointer;transition:background .15s,color .15s;letter-spacing:.04em}
+.flt:hover,.flt.active{background:var(--ink);color:var(--paper)}
+/* RIGHT */
+#right{padding:32px 28px}
+#hero-txt{font-family:var(--grotesk);font-size:clamp(2.4rem,4.8vw,4.6rem);font-weight:800;letter-spacing:-.04em;line-height:.98;margin-bottom:18px}
+#hero-sub{font-size:13px;line-height:1.6;max-width:560px;margin-bottom:28px;border-left:2px solid var(--ink);padding-left:14px}
+/* DEMO GRID */
+#demo-list{border-top:1px solid var(--ink)}
+.demo-row{display:grid;grid-template-columns:44px 1fr auto;align-items:center;border-bottom:1px solid var(--ink);padding:12px 0;gap:12px;cursor:pointer;transition:background .15s}
+.demo-row:hover{background:var(--cell)}
+.demo-row.hidden{display:none}
+.d-idx{font-family:var(--mono);font-size:10px;opacity:.5;padding-left:4px}
+.d-body .d-en{font-family:var(--grotesk);font-weight:700;font-size:13px;letter-spacing:-.01em}
+.d-body .d-kr{font-size:11px;opacity:.65;margin-top:2px}
+.d-body .d-tag{font-family:var(--mono);font-size:9px;letter-spacing:.06em;opacity:.45;margin-top:3px}
+.d-launch{font-family:var(--mono);font-size:10px;white-space:nowrap;padding:6px 10px;border:1px solid var(--ink);transition:background .15s,color .15s}
+.demo-row:hover .d-launch{background:var(--ink);color:var(--paper)}
+/* DARK SECTION */
+#dark{background:var(--dark);color:var(--paper);padding:48px 28px}
+#dark h2{font-family:var(--grotesk);font-size:clamp(1.2rem,2.5vw,2rem);font-weight:800;letter-spacing:-.03em;margin-bottom:6px}
+#dark .ds-label{font-family:var(--mono);font-size:9px;letter-spacing:.1em;opacity:.4;margin-bottom:28px}
+#eco-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid #333;border-left:1px solid #333}
+.eco-cell{border-right:1px solid #333;border-bottom:1px solid #333;padding:20px 16px}
+.eco-cell h3{font-family:var(--grotesk);font-size:12px;font-weight:700;letter-spacing:.04em;margin-bottom:8px;opacity:.5}
+.eco-cell a{display:block;font-size:12px;padding:5px 0;border-bottom:1px solid #222;transition:opacity .15s}
+.eco-cell a:hover{opacity:.6}
+.eco-cell a .arr{font-family:var(--mono);font-size:10px;margin-left:4px}
+/* FOOTER */
+#foot{background:var(--dark);color:var(--paper);border-top:1px solid #222;padding:16px 28px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:9px;opacity:.4}
+/* MOBILE */
+@media(max-width:960px){
+#hdr-coords{display:none}
+#hdr-nav a{padding:0 8px;font-size:9px}
+#split{grid-template-columns:1fr}
+#left{position:static;height:auto;border-right:none;border-bottom:1px solid var(--ink)}
+#filters{flex-direction:row;flex-wrap:wrap}
+.flt{margin-bottom:0;flex:1 1 auto;text-align:center}
+#eco-grid{grid-template-columns:repeat(2,1fr)}
+#foot{flex-direction:column;gap:6px;text-align:center}
+}
+</style>
 </head>
 <body>
 
-  <div class="topbar">
-    <span class="badge">Founder's LTD</span>
-    First 100 Seats Only — Get Full Lifetime Access to Cutaway ArchViz & AI Proposal MCP Suite for a Single $29 Payment (No Subscriptions)
-  </div>
+<header id="hdr">
+  <span id="hdr-coords">SEOUL 37.5665° N // GLOBAL DIGITAL & SPATIAL SYSTEMS</span>
+  <span id="hdr-clock" style="font-family:var(--mono);font-size:10px"></span>
+  <nav id="hdr-nav">
+    <a href="index.html" class="active">01 / STUDIO & 23 DEMOS</a>
+    <a href="ltd.html">02 / $29 MCP SUITE LTD</a>
+    <a href="tools.html">03 / 50+ ROI CALC</a>
+    <a href="vault.html">04 / 500 PROMPT VAULT</a>
+    <a href="magazine.html">05 / 40 COLUMNS</a>
+  </nav>
+</header>
 
-  <div class="container">
-    <nav>
-      <div class="logo">
-        <div class="logo-mark">C</div>
-        <span>CUTAWAY <span style="color:var(--accent-cyan);font-weight:600;">MCP SUITE</span></span>
-      </div>
-      <a href="#checkout" class="nav-cta">Claim $29 Lifetime Pass →</a>
-    </nav>
+<div id="split">
+  <aside id="left">
+    <h1>CUTAWAY //<br>HYPER-AGENCY</h1>
+    <div class="sub">4K SPATIAL ARCHVIZ · AUTOMATED B2B PROPOSAL SYSTEMS · CONVERSION WEB ENGINEERING</div>
+    <p style="font-size:12px;line-height:1.6;opacity:.75">High-end spatial rendering studio & autonomous B2B conversion engineering. 23 pre-built industry flagship demos. Deploy within 48 hours.</p>
 
-    <!-- HERO -->
-    <header class="hero">
-      <div class="pill-tag">
-        <span>⚡ Built for Spatial, Exhibition, Interior & Architectural Studios</span>
-      </div>
-      <h1>
-        From Raw 80-Page RFP to <span class="gradient-text">4K ArchViz & 50-Page Winning Proposal</span> in 18 Minutes.
-      </h1>
-      <p class="hero-sub">
-        Stop burning 45+ unpaid hours on bid formatting, camera angle guesswork, and repetitive CAD-to-render prompt engineering. Plug our production-tested <strong>Claude + Cursor MCP Server & Automated Editorial Pipeline</strong> straight into your studio workflow.
-      </p>
+    <div class="section-label">// DIRECT B2B COMMISSION & STORE</div>
+    <div id="links"></div>
 
-      <div class="cta-box">
-        <a href="#checkout" class="btn-primary">
-          <span>Unlock Lifetime Studio Access — <span class="price-strike">$149</span> $29 One-Time</span>
-          <span>→</span>
-        </a>
-        <div class="guarantee-meta">
-          <span>✓ Instant ZIP + Git Repo Access</span>
-          <span>✓ Works on macOS & Windows</span>
-          <span>✓ Commercial License Included</span>
-          <span>✓ 27 / 100 Founder Seats Left</span>
-        </div>
-      </div>
+    <div class="section-label">// FILTER DEMOS BY CATEGORY</div>
+    <div id="filters"></div>
+  </aside>
 
-      <!-- Terminal Workflow Preview -->
-      <div class="terminal-card mono">
-        <div class="terminal-header">
-          <div class="dots">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <span style="font-size:0.78rem;color:#94a3b8;">claude-code — cutaway-mcp-server v2.4</span>
-          <span></span>
-        </div>
-        <div class="terminal-body">
-          <div><span class="comment"># 1. Ingest client RFP PDF & extract spatial zoning, budget & scoring matrix</span></div>
-          <div><span class="cmd">$ mcp run cutaway:parse_rfp</span> --input "2026_National_Museum_Exhibition_RFP.pdf"</div>
-          <div><span class="ok">✔ [00:04.2] Extracted 14 mandatory deliverables, 6 spatial zones (1,450 sqm), & evaluation weights.</span></div>
-          <br/>
-          <div><span class="comment"># 2. Generate physically accurate 4K ArchViz Camera & Lighting Prompts (Midjourney v6.1 / Flux / Magnific)</span></div>
-          <div><span class="cmd">$ mcp run cutaway:archviz_director</span> --style "Brutalist Timber & Diffused Skylight" --cameras 8</div>
-          <div><span class="ok">✔ [00:09.8] Generated 8 lens-calibrated prompts (24mm Tilt-Shift, IES Cove Lighting, PBR Material specs).</span></div>
-          <br/>
-          <div><span class="comment"># 3. Compile Swiss-Grid 50-Page Proposal PDF (A4 Landscape, TOC, Gantt, Floorplan SVG Callouts)</span></div>
-          <div><span class="cmd">$ mcp run cutaway:build_proposal_pdf</span> --theme "swiss-architectural-dark" --output "Final_Bid_Deck.pdf"</div>
-          <div><span class="ok">✔ [00:18.4] Compiled 52-page print-ready PDF (Zero orphan headings, 300 DPI diagrams). Ready to submit!</span></div>
-        </div>
-      </div>
+  <main id="right">
+    <div id="hero-txt">ARCHITECTURAL<br>PRECISION MEETS<br>AUTONOMOUS B2B<br>CONVERSION.</div>
+    <div id="hero-sub">
+      <span class="ko">아래 23개 산업별 플래그십 웹사이트는 4K 공간 렌더링과 도메인 특화 전환 퍼널로 사전 설계되어 48시간 내 즉시 배포 가능합니다.</span><br>
+      <span style="opacity:.6;font-size:12px">All 23 industry flagship demos are pre-engineered with 4K spatial renders and domain-specific conversion funnels — ready for immediate deployment within 48 hours.</span>
+    </div>
+    <div id="demo-list"></div>
+  </main>
+</div>
 
-      <!-- Metrics -->
-      <div class="metrics-grid">
-        <div class="metric-card">
-          <div class="metric-val">92%</div>
-          <div class="metric-label">Faster RFP Breakdown & Concept Deck Drafting</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-val">420+</div>
-          <div class="metric-label">Calibrated ArchViz Camera, Lens & Material Prompts</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-val">50 Pages</div>
-          <div class="metric-label">Auto-Typeset Swiss Grid HTML-to-PDF Engine</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-val">$29</div>
-          <div class="metric-label">Pay Once, Use Forever (Zero Monthly SaaS Fees)</div>
-        </div>
-      </div>
-    </header>
+<section id="dark">
+  <h2>ECOSYSTEM ARCHITECTURE // 01–05</h2>
+  <div class="ds-label">CUTAWAY STUDIO FULL PRODUCT & CONTENT ECOSYSTEM</div>
+  <div id="eco-grid"></div>
+</section>
 
-    <!-- BEFORE / AFTER -->
-    <section>
-      <span class="sec-tag">Why Design Studios Switch</span>
-      <h2>Stop Losing Nights to Unpaid Pitch Decks</h2>
-      <p class="sec-desc">
-        Most architectural and exhibition agencies lose money on proposals before winning a single contract. Here is how Cutaway transforms your pitch week:
-      </p>
+<footer id="foot">
+  <span>© 2025 CUTAWAY & MATCHFORM SPATIAL AI STUDIO — SEOUL, KR</span>
+  <span>kbjexhibition-ui.github.io // ALL RIGHTS RESERVED</span>
+</footer>
 
-      <div class="compare-grid">
-        <div class="compare-box old">
-          <div class="compare-title" style="color:#f87171;">
-            <span>❌ The Old Studio Grind (40–60 Hours/Bid)</span>
-          </div>
-          <ul class="compare-list">
-            <li><span>•</span> <span>Reading 90-page government or corporate RFPs at 2 AM and missing hidden compliance clauses.</span></li>
-            <li><span>•</span> <span>Getting plastic-looking AI renders because prompts lack real-world focal lengths (16mm–35mm) and IES lighting physics.</span></li>
-            <li><span>•</span> <span>Fighting InDesign/PowerPoint text overflow for 14 hours just to align schedules, zoning tables, and budget sheets.</span></li>
-            <li><span>•</span> <span>Paying $49–$99/month per seat for bloated SaaS tools that don't understand spatial design terminology.</span></li>
-          </ul>
-        </div>
+<script>
+// Clock
+(function tick(){
+  const d=new Date();
+  document.getElementById('hdr-clock').textContent=
+    'KST '+d.toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false})+
+    ' // INDEX [01/05]';
+  setTimeout(tick,1000);
+})();
 
-        <div class="compare-box new">
-          <div class="compare-title" style="color:#34d399;">
-            <span>✅ With Cutaway MCP Suite (Under 25 Minutes)</span>
-          </div>
-          <ul class="compare-list">
-            <li><span>•</span> <span><strong>Instant RFP Forensics:</strong> Extracts evaluation rubric, mandatory specs, and winning hooks in 15 seconds via Claude MCP.</span></li>
-            <li><span>•</span> <span><strong>Photoreal ArchViz Matrix:</strong> Pre-engineered prompt tokens for materiality (board-formed concrete, brushed brass, polycarbonate) & visitor flow.</span></li>
-            <li><span>•</span> <span><strong>1-Click Swiss Grid Typesetter:</strong> Pure Python + CSS Paged Media builder outputs agency-grade A4/Letter PDFs automatically.</span></li>
-            <li><span>•</span> <span><strong>100% Local & Private:</strong> Runs directly inside your Claude Desktop, Claude Code, or Cursor IDE with your own API keys.</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
+// Left links
+const LINKS=[
+  ['Kmong B2B 커스텀 웹 & AI 자동화 컨설팅','https://kmong.com/gig/853127'],
+  ['$29 Cutaway ArchViz & Proposal MCP Suite','ltd.html'],
+  ['6 Official Kmong E-Books & 500 Prompt Vault','vault.html'],
+  ['50+ Interactive B2B ROI & Space Calculators','tools.html'],
+  ['40 Deep-Dive Editorial Columns (EN/KR)','magazine.html'],
+  ['Sseoboliyu Verified IT & Desk Hardware DB','https://link.inpock.co.kr/sseoboliyu']
+];
+const lc=document.getElementById('links');
+LINKS.forEach(([t,u])=>{
+  const a=document.createElement('a');a.href=u;if(u.startsWith('http'))a.target='_blank';
+  a.className='link-row';a.innerHTML=`<span class="ko" style="font-size:11px">${t}</span><span class="arr">↗</span>`;
+  lc.appendChild(a);
+});
 
-    <!-- WHAT'S INSIDE -->
-    <section>
-      <span class="sec-tag">Complete Deliverable Breakdown</span>
-      <h2>Everything Included in Your $29 Starter Kit</h2>
-      <p class="sec-desc">
-        Engineered by practicing exhibition & spatial automation architects. No fluff—every script, schema, and template is ready for immediate client deployment.
-      </p>
+// Demos
+const DEMOS=[
+  ["demo_01_seongsu_popup_agency.html","01","ARCHIVE SEONGSU","아카이브 성수 — 팝업·전시 공간 에이전시","Spatial / Exhibition"],
+  ["demo_02_gangnam_luxury_interior.html","02","MAISON CHEONGDAM","청담 메종 아틀리에 — 하이엔드 주거·상업 인테리어","Luxury Interior"],
+  ["demo_03_pangyo_b2b_saas_ir.html","03","NEXTFLOW AI","넥스트플로우 AI — 판교 엔터프라이즈 B2B SaaS & IR","Enterprise SaaS"],
+  ["demo_04_architect_competition_4k.html","04","TAEBAEK ARCHITECTS","태백 건축사사무소 — 현상설계·조감도 포트폴리오","Architecture"],
+  ["demo_05_apgujeong_derma_plastic.html","05","LUMIERE CLINIC","압구정 루미에르 의원 — 프리미엄 피부·안티에이징","Medical / Aesthetic"],
+  ["demo_06_gangnam_ortho_implant_dental.html","06","PERFECT DENTAL","강남 퍼펙트 디지털 치과 — 3D 교정·임플란트 센터","Medical / Dental"],
+  ["demo_07_seocho_divorce_criminal_law.html","07","JUSTICE PARTNERS","법무법인 정의 파트너스 — 서초 기업법무·형사·가사","Legal Advisory"],
+  ["demo_08_yeouido_tax_labor_firm.html","08","VALUEUP ADVISORY","세무·노무법인 밸류업 — 여의도 법인 컨설팅·기장","Tax & Labor"],
+  ["demo_09_g2b_public_tender_mfg.html","09","HANBIT ROBOTICS","한빛 스마트 로보틱스 — 스마트팩토리·조달청 입찰","Industrial / B2G"],
+  ["demo_10_franchise_hq_recruitment.html","10","GOURMET F&B HQ","고메 소바 & 카츠 본부 — 가맹본부 창업 전환 랜딩","Franchise HQ"],
+  ["demo_11_hannam_boutique_showroom.html","11","MAISON DE HANNAM","메종 드 한남 — 하이엔드 패션·오브제 쇼룸","Boutique Flagship"],
+  ["demo_12_songdo_bio_medtech_ir.html","12","CELLBIOMED KOREA","셀바이오메드 코리아 — 송도 바이오·메드테크 글로벌 IR","Bio / MedTech"],
+  ["demo_13_jeju_luxury_stay_resort.html","13","STAY OREUM JEJU","스테이 오름 제주 — 프라이빗 독채 건축 스테이","Hospitality"],
+  ["demo_14_wellness_pilates_pt_chain.html","14","THE CORE WELLNESS","더 코어 웰니스 라운지 — 프라이빗 필라테스·재활","Wellness Studio"],
+  ["demo_15_wedding_venue_chapel_hall.html","15","THE GRACE CHAPEL","더 그레이스 채플 — 하이엔드 채플 웨딩홀·연회","Wedding Venue"],
+  ["demo_16_patisserie_cafe_flagship.html","16","FOREST ROASTERS","포레스트 로스터스 — 대형 베이커리·로스터리 플래그십","F&B Flagship"],
+  ["demo_17_import_auto_detailing_tuning.html","17","AUTOBAHN GARAGE","아우토반 슈투트가르트 — 슈퍼카 PPF·디테일링 센터","Automotive"],
+  ["demo_18_private_academy_daechi.html","18","DAECHI MED ACADEMY","대치 최상위 의대관 — 프리미엄 입시·의치대 컨설팅","Education"],
+  ["demo_19_pet_luxury_hotel_vet.html","19","ROYAL PET SQUARE","로얄 펫 메디컬 스퀘어 — 24시 동물메디컬·반려동물 호텔","Pet Care / Vet"],
+  ["demo_20_industrial_plant_3d_twin.html","20","CORETECH LOGISTICS","코어텍 물류엔지니어링 — 3D 디지털트윈·자동화 플랜트","3D Digital Twin"],
+  ["demo_gangnam_interior_remodel.html","21","THE PRESTIGE DESIGN","더 프레스티지 디자인 — 하이엔드 주거 리모델링 에디션","Bespoke Interior"],
+  ["demo_local_premium_dental.html","22","SEOUL SIGNATURE DENTAL","서울 시그니처 치과의원 — 심미보철·디지털 임플란트","Signature Clinic"],
+  ["demo_seongsu_space_studio.html","23","ATELIER SEONGSU","아틀리에 성수 — 브랜드 경험·공간 디렉팅 스튜디오","Spatial Directing"]
+];
 
-      <div class="bento-grid">
-        <div class="bento-item">
-          <span class="bento-badge">MODULE 01 • MCP SERVER</span>
-          <h3>RFP Analyzer & Compliance Matrix MCP</h3>
-          <p>Drop any public or private tender PDF into Claude/Cursor. Automatically maps client pain points, required deliverables, spatial square-footage ratios, and scoring weight into structured JSON & Markdown.</p>
-          <div class="bento-meta mono">
-            <span>Python / FastMCP</span>
-            <span>Zero-Config Setup</span>
-          </div>
-        </div>
+const CATS=['ALL (23)','SPATIAL & ARCHVIZ','MEDICAL & LEGAL','ENTERPRISE & B2B','HOSPITALITY & F&B'];
+const CAT_MAP={'SPATIAL & ARCHVIZ':['Spatial / Exhibition','Architecture','Spatial Directing','3D Digital Twin','Boutique Flagship'],'MEDICAL & LEGAL':['Medical / Aesthetic','Medical / Dental','Legal Advisory','Tax & Labor','Signature Clinic'],'ENTERPRISE & B2B':['Enterprise SaaS','Industrial / B2G','Franchise HQ','Bio / MedTech','Automotive','Education','Bespoke Interior','Luxury Interior'],'HOSPITALITY & F&B':['Hospitality','Wellness Studio','Wedding Venue','F&B Flagship','Pet Care / Vet']};
 
-        <div class="bento-item">
-          <span class="bento-badge">MODULE 02 • ARCHVIZ ENGINE</span>
-          <h3>420+ Spatial & Exhibition Render Prompt Vault</h3>
-          <p>Categorized by typology: Museum Pavilions, Pop-up Retail, Luxury Residential, Facade Competition, and Interactive Media Halls. Includes camera lens, lighting temperature (Kelvin), and Magnific upscale recipes.</p>
-          <div class="bento-meta mono">
-            <span>MJ v6.1 / Flux / Higgsfield</span>
-            <span>JSON + Notion + MD</span>
-          </div>
-        </div>
+const dl=document.getElementById('demo-list');
+DEMOS.forEach(([href,idx,en,kr,tag])=>{
+  const row=document.createElement('a');
+  row.href=href;row.className='demo-row';row.dataset.tag=tag;
+  row.innerHTML=`<div class="d-idx">[${idx}]</div><div class="d-body"><div class="d-en">${en}</div><div class="d-kr ko">${kr}</div><div class="d-tag">${tag.toUpperCase()}</div></div><div class="d-launch">LAUNCH LIVE DEMO ↗</div>`;
+  dl.appendChild(row);
+});
 
-        <div class="bento-item">
-          <span class="bento-badge">MODULE 03 • AUTO-PUBLISHER</span>
-          <h3>50-Page Swiss-Grid Proposal HTML/PDF Compiler</h3>
-          <p>Turn raw markdown outlines into breathtaking A4 landscape or portrait bid books. Built-in SVG visitor circulation diagrams, zoning bubble charts, Gantt timelines, and itemized BOQ estimate tables.</p>
-          <div class="bento-meta mono">
-            <span>CSS Paged Media</span>
-            <span>300 DPI Print-Ready</span>
-          </div>
-        </div>
+const fc=document.getElementById('filters');
+let activeCat='ALL (23)';
+CATS.forEach(c=>{
+  const b=document.createElement('div');b.className='flt'+(c===activeCat?' active':'');b.textContent=c;
+  b.onclick=()=>{
+    activeCat=c;
+    document.querySelectorAll('.flt').forEach(x=>x.classList.remove('active'));b.classList.add('active');
+    document.querySelectorAll('.demo-row').forEach(r=>{
+      if(c==='ALL (23)'){r.classList.remove('hidden');return;}
+      const allowed=CAT_MAP[c]||[];
+      r.classList.toggle('hidden',!allowed.includes(r.dataset.tag));
+    });
+  };
+  fc.appendChild(b);
+});
 
-        <div class="bento-item">
-          <span class="bento-badge">MODULE 04 • COST & BOQ</span>
-          <h3>Automated Spatial Budget & Material Estimator</h3>
-          <p>Generates realistic exhibition/interior construction cost breakdowns (demolition, carpentry, AV/lighting hardware, graphics, project management) scaled dynamically to target floor area.</p>
-          <div class="bento-meta mono">
-            <span>CSV / Excel / Markdown</span>
-            <span>Customizable Unit Rates</span>
-          </div>
-        </div>
-
-        <div class="bento-item">
-          <span class="bento-badge">MODULE 05 • VISUAL QA</span>
-          <h3>Multimodal Vision Layout Critic Script</h3>
-          <p>Automated Python verifier that checks your generated slides/pages for text overlap, low-contrast captions, and broken grid alignment before you ever send the file to a client.</p>
-          <div class="bento-meta mono">
-            <span>Claude 3.7 / GPT-4o Vision</span>
-            <span>Automated QA Report</span>
-          </div>
-        </div>
-
-        <div class="bento-item">
-          <span class="bento-badge">BONUS • AGENCY LICENSE</span>
-          <h3>Unlimited Client Projects + Lifetime Updates</h3>
-          <p>Use the suite across unlimited commercial tenders, freelance pitches, and studio competitions. Includes all future v3.x MCP tool updates at zero additional cost.</p>
-          <div class="bento-meta mono">
-            <span>Commercial Rights</span>
-            <span>Lifetime Key</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRICING & CHECKOUT -->
-    <section id="checkout">
-      <span class="sec-tag">Limited Founder Release</span>
-      <h2>One Single Payment. Yours Forever.</h2>
-      <p class="sec-desc">
-        We are pricing the first 100 licenses at $29 to gather feedback from forward-thinking architects, spatial designers, and creative directors before moving to $149/yr.
-      </p>
-
-      <div class="pricing-card">
-        <div class="popular-ribbon">🔥 73% Claimed — 27 Spots Left</div>
-        <div class="mono" style="color:var(--accent-cyan);font-size:0.85rem;font-weight:600;">
-          CUTAWAY ARCHVIZ & PROPOSAL MCP SUITE (STUDIO EDITION)
-        </div>
-        <div class="price-row">
-          <span class="price-big">$29</span>
-          <span class="price-old">$149</span>
-          <span style="color:#34d399;font-weight:700;font-size:0.95rem;">Save 80% Today (Lifetime Deal)</span>
-        </div>
-        <p style="color:var(--text-muted);font-size:0.92rem;">
-          One-time payment • Instant digital download • Commercial studio license for up to 5 seats
-        </p>
-
-        <div class="seat-bar-wrap">
-          <div class="seat-bar-fill"></div>
-        </div>
-
-        <ul class="feature-checklist">
-          <li><span style="color:#10b981;">✔</span> <strong>Cutaway MCP Server</strong> for Claude Desktop, Claude Code & Cursor</li>
-          <li><span style="color:#10b981;">✔</span> <strong>420+ Architectural & Exhibition Render Prompts</strong> (Flux / Midjourney / Magnific)</li>
-          <li><span style="color:#10b981;">✔</span> <strong>50-Page Swiss-Grid Proposal Generator</strong> (HTML/CSS + SVG Diagram Engine)</li>
-          <li><span style="color:#10b981;">✔</span> <strong>Automated RFP Compliance & Scoring Matrix Extractor</strong></li>
-          <li><span style="color:#10b981;">✔</span> <strong>Dynamic Spatial BOQ & Construction Cost Calculator</strong></li>
-          <li><span style="color:#10b981;">✔</span> <strong>14-Day No-Questions-Asked Money-Back Guarantee</strong></li>
-        </ul>
-
-        <a href="https://gumroad.com/l/cutaway-archviz-mcp-ltd?wanted=true" class="btn-primary" style="width:100%;justify-content:center;font-size:1.2rem;">
-          <span>Get Instant Access for $29</span>
-          <span>⚡</span>
-        </a>
-        <div style="text-align:center;margin-top:14px;font-size:0.8rem;color:var(--text-muted);">
-          🔒 256-Bit SSL Encrypted Checkout via Stripe / Gumroad • Instant Receipt & Tax Invoice Included
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section>
-      <span class="sec-tag">Frequently Asked Questions</span>
-      <h2>Everything You Need to Know</h2>
-      <div class="faq-list" style="margin-top:36px;">
-        <div class="faq-item">
-          <div class="faq-q">1. Do I need to be a programmer to use the Cutaway MCP Suite?</div>
-          <div class="faq-a">Not at all. We include a 3-minute copy-paste installer for both macOS and Windows. If you can open Claude Desktop or Cursor and type a sentence, you can run every workflow in this kit. Plus, the 420+ ArchViz prompt library and HTML proposal templates work standalone even without MCP.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">2. Which AI tools and rendering engines does this support?</div>
-          <div class="faq-a">The MCP tools plug natively into Claude Desktop, Claude Code, and Cursor. The ArchViz prompt matrices are tuned for Midjourney v6.1, Flux.1 Dev/Pro, Magnific AI, Krea, and Higgsfield camera controls, alongside V-Ray/D5 lighting reference specs.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">3. Can I use the generated proposals and designs for commercial client bids?</div>
-          <div class="faq-a">Yes, 100%. Your $29 Founder's Lifetime Deal includes an unrestricted Commercial Studio License. You can use all templates, SVG diagrams, and outputs for unlimited client tenders, competitions, and agency deliverables.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">4. Is this really a one-time payment of $29?</div>
-          <div class="faq-a">Yes. There are zero recurring charges. Once the first 100 founder seats are claimed, the price transitions to our standard $149 annual studio license.</div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <p>© 2026 Cutaway Spatial Systems & AI Automation Lab. All rights reserved.</p>
-      <p style="margin-top:6px;">Built for Architects, Exhibition Designers, Interior Studios & Creative Agencies Worldwide.</p>
-    </footer>
-  </div>
-
+// Ecosystem dark section
+const ECO=[
+  {h:'02 / MCP SUITE LTD',links:[['$29 Cutaway ArchViz MCP Suite','ltd.html'],['Founder\'s LTD Access','ltd.html']]},
+  {h:'03 / ROI CALCULATORS',links:[['50+ B2B ROI Tools','tools.html'],['Senior & Space Calc','tools.html']]},
+  {h:'04 / PROMPT VAULT',links:[['500 Prompt Vault','vault.html'],['E-Book #1 — Kmong','https://kmong.com/gig/853548'],['E-Book #2','https://kmong.com/gig/850933'],['E-Book #3','https://kmong.com/gig/852873'],['E-Book #4','https://kmong.com/gig/853330'],['E-Book #5','https://kmong.com/gig/853347'],['E-Book #6','https://kmong.com/gig/853356']]},
+  {h:'05 / 40 COLUMNS',links:[['Editorial Magazine','magazine.html'],['Kmong B2B Consulting','https://kmong.com/gig/853127'],['Sseoboliyu Hardware DB','https://link.inpock.co.kr/sseoboliyu']]}
+];
+const eg=document.getElementById('eco-grid');
+ECO.forEach(({h,links})=>{
+  const cell=document.createElement('div');cell.className='eco-cell';
+  cell.innerHTML=`<h3>${h}</h3>`+links.map(([t,u])=>`<a href="${u}"${u.startsWith('http')?' target="_blank"':''}>${t}<span class="arr">↗</span></a>`).join('');
+  eg.appendChild(cell);
+});
+</script>
 </body>
 </html>
